@@ -2,28 +2,26 @@
 
 <h3>Here Is the List of Your Friends:</h3>
 
-<table>
-	<thead>
-		<th>Alias</th>
-		<th>Action</th>
-	</thead>
-	<tbody>
-		<? if ($count_friends['count'] === 0) { ?>
+<? if ($count_friends['count'] == 0) { ?>
 				
-			<?= "You don't have friends yet." ?>
+	<?= "You don't have friends yet." ?>
 
-		<? } else { ?>
-			
+<? } else { ?>
+	<table>
+		<thead>
+			<th>Alias</th>
+			<th>Action</th>
+		</thead>
+		<tbody>			
 			<? foreach ($friends_list as $friend) { ?>
 			<tr>
 				<td><?= $friend['friend_alias'] ?></td>
 				<td><a href="/friends/show/<?= $friend['friend_id'] ?>">View Profile</a> | <a href="/friends/remove/<?= $friend['friend_id'] ?>">Remove as Friend</a></td>
 			</tr>
 			<? } ?>
-
-		<? } ?>
-	</tbody>
-</table>
+		</tbody>
+	</table>
+<? } ?>
 
 <h3>Other Users Not on Your Friends List:</h3>
 
